@@ -46,8 +46,8 @@ export default class Welcome extends Component {
               source={{ uri: 'http://10.0.2.2:3000/' +val.image.replace(/\\/g, '/')}}
             />
             <View style={{ flex: 1, flexDirection: 'column', paddingStart: 10 }}>
-              <Text>{val._id}</Text>
               <Text>{val.name}</Text>
+              <Text>{val.campus}</Text>
             </View>
           </View>
           <View
@@ -75,7 +75,6 @@ export default class Welcome extends Component {
             }}
           />
           {obj}
-          <Text>End of the List</Text>
           <Button onPress={() => navigate('Welcome', { name: 'Testing' })}>Go back</Button>
 
         </ScrollView>
