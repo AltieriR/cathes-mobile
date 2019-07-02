@@ -27,6 +27,7 @@ export default class Welcome extends Component {
       isLoading: true,
       dataSource: null,
       visible: false,
+      equipment: 0,
     }
   }
 
@@ -66,7 +67,7 @@ export default class Welcome extends Component {
       let obj = this.state.dataSource.map((val, key) => {
         return <TouchableOpacity key={key}
 
-          onPress={() => this.setState({ visible: true })}
+          onPress={() => this.setState({ visible: true , equipment: val})}
         >
           <View style={{ flex: 1, flexDirection: 'row', padding: 5 }}>
             <Image
@@ -109,15 +110,16 @@ export default class Welcome extends Component {
             >
               <View style={{ paddingVertical: 20 }}>
 
+                <Text>QR Code: {this.state.equipment._id}</Text>
                 <Text style={{ textAlign: 'center' }}>Equipment:</Text>
                 <InputItem
                   clear
-                  defaultValue="Robot"
+                  defaultValue={this.state.equipment.name}
                 />
                 <Text style={{ textAlign: 'center' }}>Description:</Text>
                 <InputItem
                   clear
-                  defaultValue="Metal boxer"
+                  defaultValue={this.state.equipment.description}
                 />
               </View>
             </Modal>
